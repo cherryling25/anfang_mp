@@ -1,0 +1,40 @@
+.input_info{
+  width:100%;
+  height:104rpx;
+  line-height:70rpx;
+  padding:16rpx 30rpx 16rpx 30rpx;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  background-color: #ffffff;
+  border-bottom:2rpx solid #dcdcdc;
+  font-size: 30rpx;
+}
+.input_info text{
+  width:25%;
+  float: left;
+  display:block;
+  color:#333333;
+  overflow: hidden;
+}
+.input_info input{
+  width: 72%;
+  height:100%;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  float:right;
+  display:block;
+  text-align:right;
+  color:#555555;
+}
+.button{
+     width: 90%;
+  margin-left:5%;
+  height: 80rpx;
+  background: #4d8fc5;
+  color: white;
+  letter-spacing: 3rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 200rpx;
+  border-radius: 10rpx;
+}

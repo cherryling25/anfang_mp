@@ -1,0 +1,41 @@
+<view class="all">
+  <view class="banner-box">
+    <view class="banner-list">
+      <view class="page-section-spacing">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" current="0">
+
+          <block>
+            <swiper-item style="transform:translate(0%, 0px) translateZ(0px);">
+              <view class="swiper-item uni-bg-red">
+                <image src="../../images/photo.jpg"></image>
+              </view>
+            </swiper-item>
+            <swiper-item style="transform:translate(0%, 0px) translateZ(0px);">
+              <view class="swiper-item uni-bg-red">
+                <image src="../../images/photo.jpg"></image>
+              </view>
+            </swiper-item>
+          </block>
+
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <view class="operate">
+    <view class="operate_one" bindtap="addTap">
+      <image src="../../images/add.png" mode="widthFit"></image>
+      <view>人员注册</view>
+    </view>
+        <view class="operate_one line"bindtap="registerTap">
+      <image src="../../images/msg.png" mode="widthFit"></image>
+      <view>访客登记</view>
+    </view>
+        <view class="operate_one" bindtap="problemTap">
+      <image src="../../images/problem.png" mode="widthFit"></image>
+      <view>常见问题</view>
+    </view>
+  </view>
+<view class="fixed">
+<image src="../../images/kai.png" mode="widthFit"></image>
+</view>
+</view>
