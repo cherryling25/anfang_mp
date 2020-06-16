@@ -1,0 +1,13 @@
+<!--pages/audit/audit.wxml-->
+<view class="wrap" wx:for="{{list}}" wx:key="index">
+	<view class="borderClass">
+		<view class="content" bindtap="visitorDetailTap">
+			<view class="textClass">访客：{{item.name}}</view>
+			<view class="textClass" style="display:flex; justify-content: space-between;">
+				<view style="padding:15rpx 0;">随行人数：{{item.number}}人</view>
+				<image src="../../images/ic_xia.png"></image>
+			</view>
+			<view class="textClass">联系电话：{{item.phone}}</view>
+		</view>
+	</view>
+</view>

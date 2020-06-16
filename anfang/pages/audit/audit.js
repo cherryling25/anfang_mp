@@ -1,18 +1,50 @@
-// pages/problem/problem.js
+// pages/audit/audit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    list: [
+    {
+      name: 'lemon',
+      number: 5,
+      phone: '1627536262526'
+    },
+    {
+      name: 'lemon',
+      number: 5,
+      phone: '1627536262526'
+    }
 
+  ]
   },
-
+  visitorDetailTap(){
+    wx.navigateTo({
+      url: 'visitorDetail/visitorDetail',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.list();
+  },
+  // 加载
+  list(){
+    // wx.request({
+    //   url: getApp().globalData.postUrl + ' ',
+    //   header: {
 
+    //   },
+    //   method: 'post',
+    //   data: {
+
+    //   },
+    //   success(obj){
+    //     console.log(obj);
+    //   }
+    // })
   },
 
   /**

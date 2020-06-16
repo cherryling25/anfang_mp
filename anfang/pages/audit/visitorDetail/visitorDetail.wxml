@@ -1,0 +1,34 @@
+<!--pages/audit/visitorDetail/visitorDetail.wxml-->
+<view class="wrap">
+	<view class="borderClass">
+		<view class="content">
+			<view class="title">身份信息</view>
+			<view><text>姓名</text> {{visitor.name}} </view>
+			<view> <text>性别</text>{{visitor.sex}}</view>
+			<view> <text>联系电话</text>{{visitor.phone}} </view>
+			<view> <text>证件号 </text>{{visitor.IdNumber}}</view>
+			<view> <text>随行人数 </text>{{visitor.number}}人</view>
+			<view> <text>车牌号 </text>{{visitor.carNumber}}</view>
+			<view> <text>单位名称 </text>{{visitor.companyName}}</view>
+
+			<view class="title">被访信息</view>
+			<view><text>来访事由</text> {{visitor.cause}} </view>
+			<view> <text>来访时间</text>{{visitor.time}}</view>
+
+		</view>
+	</view>
+</view>
+
+<view class="btnWrap">
+<view class="btn">
+
+	<view class="refuse" bindtap="refuseTab">
+			拒绝
+	</view>
+
+	<view class="pass" bindtap="passTab">
+			通过
+	</view>
+
+</view>
+</view>

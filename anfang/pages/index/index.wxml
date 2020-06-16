@@ -7,7 +7,7 @@
           <block>
             <swiper-item style="transform:translate(0%, 0px) translateZ(0px);">
               <view class="swiper-item uni-bg-red">
-                <image src="../../images/photo.jpg"></image>
+                <image src="../../images/bj.png"></image>
               </view>
             </swiper-item>
             <swiper-item style="transform:translate(0%, 0px) translateZ(0px);">
@@ -30,12 +30,12 @@
       <image src="../../images/msg.png" mode="widthFit"></image>
       <view>访客登记</view>
     </view>
-        <view class="operate_one" bindtap="problemTap">
-      <image src="../../images/problem.png" mode="widthFit"></image>
-      <view>常见问题</view>
+        <view class="operate_one" bindtap="auditTap">
+      <image src="../../images/ic_Audit.png" mode="widthFit"></image>
+      <view>访客审核</view>
     </view>
   </view>
 <view class="fixed">
-<image src="../../images/kai.png" mode="widthFit"></image>
+<image src="../../images/kai.png" mode="widthFit" bindtap="unlocking"></image>
 </view>
 </view>
