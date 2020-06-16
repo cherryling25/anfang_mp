@@ -24,7 +24,7 @@
   <view class="operate">
     <view class="operate_one" bindtap="addTap">
       <image src="../../images/add.png" mode="widthFit"></image>
-      <view>人员注册</view>
+      <view>人员添加</view>
     </view>
         <view class="operate_one line"bindtap="registerTap">
       <image src="../../images/msg.png" mode="widthFit"></image>

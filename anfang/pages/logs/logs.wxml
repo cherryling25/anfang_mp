@@ -1,6 +1,27 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view wx:if="{{canIUse}}" class="bgclass">
+ <view class='header'>
+  <view class="logo_img" style="background-image:url('../../images/user_img.png');"></view>
+ </view>
+
+ <view class='content'> 登陆后发现更多精彩~ </view>
+
+ <button class='bottom' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+  微信快速登录
+ </button>
+
+  <view class="all" wx-if="{{show==1}}">
+ <cover-view class="phone">
+  <cover-view class="wrap">
+   <cover-image class="logo" src="../../images/logo.png"></cover-image>
+      <cover-image class="error" src="../../images/ic_guanbi.png" bindtap="close"></cover-image>
+   <!-- <cover-view class="phoneButton">
+    <button open-type="getPhoneNumber" bindgetphonenumber="bindphone">绑定手机号</button>
+   </cover-view> -->
+  </cover-view>
+
+ </cover-view>
 </view>
+</view>
+
+<view wx:else>请升级微信版本</view>

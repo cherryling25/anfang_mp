@@ -1,10 +1,13 @@
 {
   "pages": [
+    "pages/add/add",
+
     "pages/index/index",
+
+
 
     "pages/resigter/index",
 
-    "pages/add/add",
 
 
     "pages/audit/visitorDetail/visitorDetail",

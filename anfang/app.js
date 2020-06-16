@@ -35,7 +35,10 @@ App({
   },
   globalData: {
     userInfo: null,
-    postUrl:'',
-    token: ''
+    postUrl:'http://www.af.com/index.php/',
+    userCode: '',
+    token: '',
+    openid: '',
+    id: ''
   }
 })
