@@ -92,6 +92,7 @@ Page({
                         if (obj.data.code == 1 || obj.data.code == '1') {
                           //把token 存为全局
                           getApp().globalData.id = obj.data.cetons;
+                          wx.setStorageSync('userId', obj.data.cetons);
                           // getApp().globalData.openid = obj.data.cetons.openId;
                           // getApp().globalData.token = obj.data.cetons.TOKENA;
                           setTimeout(()=>{

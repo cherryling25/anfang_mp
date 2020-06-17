@@ -18,40 +18,24 @@ Page({
       name: "",
       sex: '',
       phone: '',
+      department: '',
       idNumber:"",
       address: "",
-      // array: ['1', '2', '3', '4'],
       daoqiTime: '',
       startTime: '',
       endTime: '',
       files: [{
-        url: 'http://mmbiz.qpic.cn/mmbiz_png/VUIF3v9blLsicfV8ysC76e9fZzWgy8YJ2bQO58p43Lib8ncGXmuyibLY7O3hia8sWv25KCibQb7MbJW3Q7xibNzfRN7A/0',
+        url: ''
         }]
     },
   },
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+    let info = this.data.info;
+    info.department = e.detail.value;
     this.setData({
-      index: e.detail.value
-    })
-    // wx.request({
-    //   url: getApp().globalData.postUrl + 'index//Department/department_list_all',
-    //   header: {
-
-    //   },
-    //   method: 'post',
-    //   data: {
-        
-    //   },
-    //   success(obj){
-    //     console.log(obj);
-    //     // console.log(obj.data.cetons[0].name)
-    //     // this.setData({
-    //     //   index: e.detail.value
-    //     // })
-    //   }
-    // })
-    
+      info: info
+    });
   },
   options(){
     wx.request({
@@ -59,23 +43,14 @@ Page({
       method: 'post',
       success(obj){
         console.log(obj);
-        const tableData = [];
+        let array = [];
           const list = obj.data.cetons;
           for (let i = 0; i < list.length; i++) {
-            const data = {
-              name: list[i].name
-            }
-            tableData.push(data);
+            array.push(list[i].name);
           }
-          this.array = tableData;
-        // let list = obj.data.cetons;
-        // for(let i = 0; i < list.length; i++){
-        //   name : list[i].name
-        // }
-        // console.log(obj.data.cetons[0].name)
-        // this.setData({
-        //   index: e.detail.value
-        // })
+        this.setData({
+          array: array
+        })
       }
     })
   },

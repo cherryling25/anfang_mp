@@ -25,9 +25,9 @@
   </view>
    <view class="input_info">
     <text>部门</text>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{info.array}}">
+    <picker bindchange="bindPickerChange" value="{{info.department}}" range="{{array}}">
     <view class="picker">
-      当前选择：{{info.array[index]}}
+      当前选择：{{info.department}}
     </view>
   </picker>
     <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="phone" value="{{info.phone}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" /> -->
