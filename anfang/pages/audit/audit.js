@@ -28,7 +28,7 @@ Page({
       },
       method: 'post',
       data: {
-        'user_id': '1'
+        'user_id': getApp().globalData.id
       },
       success(res){
       if(res.data.code == 1 ||res.data.code == '1'){

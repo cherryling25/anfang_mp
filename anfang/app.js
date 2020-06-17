@@ -36,10 +36,11 @@ App({
   globalData: {
     userInfo: null,
     userId: '',
-    postUrl:'http://www.af.com/index.php/',
+    // postUrl:'http://www.af.com/index.php/',
+    postUrl: 'http://121.36.35.124:18001/index.php/',
     userCode: '',
     token: '',
     openid: '',
-    id: ''
+    id: '1'
   }
 })

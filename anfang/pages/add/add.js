@@ -73,6 +73,7 @@ Page({
       info: this.data[dataset.obj]
     })
   },
+  // 日期选择
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let info = this.data.info;
@@ -147,22 +148,22 @@ Page({
           })
     return false;
         }
-    if(!this.data.info.startTime){
-          wx.showToast({
-            title: '请填写开始时间',
-            icon: 'none',
-            duration: 1500
-          })
-    return false;
-        }
-    if(!this.data.info.endTime){
-          wx.showToast({
-            title: '请填写结束时间',
-            icon: 'none',
-            duration: 1500
-          })
-    return false;
-        }
+    // if(!this.data.info.startTime){
+    //       wx.showToast({
+    //         title: '请填写开始时间',
+    //         icon: 'none',
+    //         duration: 1500
+    //       })
+    // return false;
+    //     }
+    // if(!this.data.info.endTime){
+    //       wx.showToast({
+    //         title: '请填写结束时间',
+    //         icon: 'none',
+    //         duration: 1500
+    //       })
+    // return false;
+    //     }
     if(this.data.files.length == 0){
           wx.showToast({
             title: '请上传图片',
@@ -185,7 +186,7 @@ Page({
       },
       method: 'post',
       data: {
-        'user_id': '1',
+        'user_id': getApp().globalData.id,
         'user_number': this.data.info.number,
         'user_name': this.data.info.name,
         'sex':this.data.info.sex,

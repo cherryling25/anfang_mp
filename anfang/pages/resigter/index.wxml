@@ -6,7 +6,7 @@
       </view>
         <view class="input_info">
         <text>性别</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="2" placeholder="请输入性别" placeholder-class="input_pla" />
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="5" placeholder="请输入性别" placeholder-class="input_pla" />
       </view>
         <view class="input_info">
         <text>联系电话</text>

@@ -204,20 +204,20 @@ Page({
         'quyu_id': this.data.info.addressid,
         'quyu_name': this.data.info.address,
         'reservation_time': time,
-        'user_id': '1'
+        'user_id': getApp().globalData.id
       },
       success(obj){
         console.log(obj);
-        // wx.showToast({
-        //   title: '登记成功',
-        //   icon: 'success',
-        //   duration: 1500
-        // })
-        // setTimeout(()=>{
-        //   wx.reLaunch({
-        //     url: '../index/index'
-        //   })
-        // },2000)
+        wx.showToast({
+          title: '登记成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(()=>{
+          wx.reLaunch({
+            url: '../index/index'
+          })
+        },2000)
         
       }
     })

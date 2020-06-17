@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id: '',
     visitor : { 
-      id:'',
       name : '', 
       sex: '',
       phone: '',
@@ -18,8 +18,26 @@ Page({
       time: ''
     }
   },
+  mockedData: function() {
+    let visitor = {
+      id: '1',
+      name: 'lemon',
+      sex: '女',
+      phone: '15226371822',
+      IdNumber: '43123998871628',
+      number: '2',
+      carNumber: 'b123456',
+      companyName: 'xun',
+      cause: 'comefor',
+      time: '2020-06-18'
+    };
+    this.setData({ visitor});
+    return visitor;
+  },
   // 加载
   list(){
+    this.mockedData();
+
     let that = this;
     wx.request({
       url: getApp().globalData.postUrl + 'index//Recording/recording_shen_find',
@@ -27,49 +45,76 @@ Page({
       },
       method: 'post',
       data: {
-        'id': '1'
+        'id': this.data.id
       },
       success(res){
-      if(res.data.code == 1 ||res.data.code == '1'){
-        console.log(res);
-        const listData = [];
-        const list = res.data.cetons;
-        for(let i = 0; i < list.length; i++){
-          const data = {
-            // id: list[i].id,
-            name: list[i].user_name,
-            number: list[i].accompanying,
-            phone: list[i].user_phone,
-            sex: list[i].sex,
-            IdNumber: list[i].card_number,
-            number: list[i].accompanying,
-            carNumber: list[i].car_number,
-            companyName: list[i].unit,
-            cause: list[i].centons,
-            time: list[i].reservation_time
+        if(res.data.code == '1'){
+          console.log(res);
+          const data = res.data.cetons;
+          const visitor = {
+            name: data.user_name,
+            number: data.accompanying,
+            phone: data.user_phone,
+            sex: data.sex,
+            IdNumber: data.card_number,
+            number: data.accompanying,
+            carNumber: data.car_number,
+            companyName: data.unit,
+            cause: data.centons,
+            time: data.reservation_time
           }
-          listData.push(data);
-        }
-        that.setData({
-          visitor : listData
+          that.setData({
+            visitor: visitor
           });
-      }
+        }
       }
     })
   },
   // 拒绝
   refuseTab(){
-
+    wx.request({
+      url: getApp().globalData.postUrl + 'index//Recording/shen',
+      header: {
+      },
+      method: 'post',
+      data: {
+        'id': this.data.id,
+        'type': 3,
+        'centons': ''
+      },
+      success(res) {
+        if (res.data.code == 1 || res.data.code == '1') {
+          console.log('拒绝')
+        }
+      }
+    })
   },
   // 通过
   passTab(){
-
+    wx.request({
+      url: getApp().globalData.postUrl + 'index//Recording/shen',
+      header: {
+      },
+      method: 'post',
+      data: {
+        'id': this.data.id,
+        'type': 2,
+        'centons': ''
+      },
+      success(res) {
+        if (res.data.code == 1 || res.data.code == '1') {
+          console.log('通过')
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id);
+    this.setData({
+      id: options.id
+    });
     this.list();
   },
 

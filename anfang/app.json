@@ -1,17 +1,9 @@
 {
   "pages": [
-    "pages/audit/audit",
-
-    "pages/resigter/index",
-
     "pages/index/index",
-
-
-
+    "pages/audit/audit",
+    "pages/resigter/index",
     "pages/add/add",
-
-
-
     "pages/audit/visitorDetail/visitorDetail",
     "pages/logs/logs"
   ],

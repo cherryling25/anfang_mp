@@ -9,7 +9,7 @@
   </view>
     <view class="input_info">
     <text>性别</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="1" placeholder="请输入性别" placeholder-class="input_pla" />
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="3" placeholder="请输入性别" placeholder-class="input_pla" />
   </view>
    <view class="input_info">
     <text>手机号</text>
@@ -17,7 +17,7 @@
   </view>
    <view class="input_info">
     <text>身份证号</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="1" placeholder="请输入身份证号" placeholder-class="input_pla" />
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="18" placeholder="请输入身份证号" placeholder-class="input_pla" />
   </view>
     <view class="input_info">
     <text>地址</text>
