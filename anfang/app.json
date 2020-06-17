@@ -1,10 +1,18 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/add/add",
-    "pages/resigter/index",
-    "pages/audit/visitorDetail/visitorDetail",
     "pages/audit/audit",
+
+    "pages/resigter/index",
+
+    "pages/index/index",
+
+
+
+    "pages/add/add",
+
+
+
+    "pages/audit/visitorDetail/visitorDetail",
     "pages/logs/logs"
   ],
   "window": {

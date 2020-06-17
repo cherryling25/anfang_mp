@@ -6,7 +6,7 @@
       </view>
         <view class="input_info">
         <text>性别</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="2" placeholder="请输入性别" placeholder-class="input_pla" />
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="2" placeholder="请输入性别" placeholder-class="input_pla" />
       </view>
         <view class="input_info">
         <text>联系电话</text>
@@ -14,7 +14,7 @@
       </view>
         <view class="input_info">
         <text>证件号</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="18" placeholder="请输入身份证号" placeholder-class="input_pla" />
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="18" placeholder="请输入身份证号" placeholder-class="input_pla" />
       </view>
       <view class="input_info">
         <text>随行人数</text>
@@ -40,7 +40,12 @@
       </view>
         <view class="input_info">
         <text>来访时间</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="time" value="{{info.time}}" maxlength="20" placeholder="请输入来访时间" placeholder-class="input_pla" />
+        <picker mode="date" value="{{info.time}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker">
+            请选择: {{info.time}}
+          </view>
+        </picker>
+        <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="time" value="{{info.time}}" maxlength="20" placeholder="请输入来访时间" placeholder-class="input_pla" /> -->
       </view>
         <view class="input_info">
         <text>联系电话</text>
@@ -48,7 +53,12 @@
       </view>
       <view class="input_info">
         <text>负责区域</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" />
+        <picker bindchange="bindPickerChange" value="{{info.address}}" range="{{array}}">
+          <view class="picker">
+            请选择：{{info.address}}
+          </view>
+        </picker>
+        <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" /> -->
       </view>
  
   <view class="button" bindtap="submit">提交</view>

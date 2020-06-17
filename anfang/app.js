@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    userId: '',
     postUrl:'http://www.af.com/index.php/',
     userCode: '',
     token: '',

@@ -6,16 +6,56 @@ Page({
    */
   data: {
     visitor : { 
-      name : 'lemon', 
-      sex: '女',
-      phone: '1937478238237',
-      IdNumber: 'wwew23232',
-      number: 4,
-      carNumber: '834r',
-      companyName: '名称',
-      cause: '事由',
-      time: '2020-02'
+      id:'',
+      name : '', 
+      sex: '',
+      phone: '',
+      IdNumber: '',
+      number: '',
+      carNumber: '',
+      companyName: '',
+      cause: '',
+      time: ''
     }
+  },
+  // 加载
+  list(){
+    let that = this;
+    wx.request({
+      url: getApp().globalData.postUrl + 'index//Recording/recording_shen_find',
+      header: {
+      },
+      method: 'post',
+      data: {
+        'id': '1'
+      },
+      success(res){
+      if(res.data.code == 1 ||res.data.code == '1'){
+        console.log(res);
+        const listData = [];
+        const list = res.data.cetons;
+        for(let i = 0; i < list.length; i++){
+          const data = {
+            // id: list[i].id,
+            name: list[i].user_name,
+            number: list[i].accompanying,
+            phone: list[i].user_phone,
+            sex: list[i].sex,
+            IdNumber: list[i].card_number,
+            number: list[i].accompanying,
+            carNumber: list[i].car_number,
+            companyName: list[i].unit,
+            cause: list[i].centons,
+            time: list[i].reservation_time
+          }
+          listData.push(data);
+        }
+        that.setData({
+          visitor : listData
+          });
+      }
+      }
+    })
   },
   // 拒绝
   refuseTab(){
@@ -29,7 +69,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id);
+    this.list();
   },
 
   /**

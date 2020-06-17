@@ -17,7 +17,7 @@
   </view>
    <view class="input_info">
     <text>身份证号</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="18" placeholder="请输入身份证号" placeholder-class="input_pla" />
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="1" placeholder="请输入身份证号" placeholder-class="input_pla" />
   </view>
     <view class="input_info">
     <text>地址</text>
@@ -27,48 +27,39 @@
     <text>部门</text>
     <picker bindchange="bindPickerChange" value="{{info.department}}" range="{{array}}">
     <view class="picker">
-      当前选择：{{info.department}}
+      请选择：{{info.department}}
     </view>
   </picker>
-    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="phone" value="{{info.phone}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" /> -->
   </view>
    <view class="input_info">
     <text>到期时间</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="daoqiTime" value="{{info.daoqiTime}}" maxlength="11" placeholder="请输入到期时间" placeholder-class="input_pla" />
+    <picker mode="date" value="{{info.daoqiTime}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      请选择: {{info.daoqiTime}}
+    </view>
+  </picker>
+    <!-- <picker mode="time" value="{{info.daoqiTime}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+    <view class="picker">
+      请选择: {{info.daoqiTime}}
+    </view>
+  </picker> -->
+    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="daoqiTime" value="{{info.daoqiTime}}" maxlength="11" placeholder="请输入到期时间" placeholder-class="input_pla" /> -->
   </view>
-   <view class="input_info">
+   <!-- <view class="input_info">
     <text>开始时间</text>
     <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="startTime" value="{{info.startTime}}" maxlength="11" placeholder="请输入开始时间" placeholder-class="input_pla" />
   </view>
   <view class="input_info">
     <text>结束时间</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="endTime" value="{{info.endTime}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" />
-  </view>
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="endTime" value="{{info.endTime}}" maxlength="11" placeholder="请输入结束时间" placeholder-class="input_pla" />
+  </view> -->
     <view class="page__bd">
         <mp-cells>
             <mp-cell>
-                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{info.files}}" max-count="2"></mp-uploader>
+                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="1"></mp-uploader>
             </mp-cell>
         </mp-cells>
     </view>
-    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="phone" value="{{info.phone}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" /> -->
+   
   <view class="button" bindtap="submit">提交</view>
 </view>
-
-
- <!-- <view class="input_info">
-    <text>姓名</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="name" value="{{info.name}}" maxlength="5" placeholder="请输入姓名" placeholder-class="input_pla" />
-  </view>
-    <view class="input_info">
-    <text>证件号码</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="cardNumber" value="{{info.cardNumber}}" maxlength="18" placeholder="请输入证件号码" placeholder-class="input_pla" />
-  </view>
-    <view class="input_info">
-    <text>联系电话</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="phone" value="{{info.phone}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" />
-  </view>
-    <view class="input_info">
-    <text>地址</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" />
-  </view> -->

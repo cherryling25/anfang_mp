@@ -31,6 +31,7 @@ Page({
   unlocking() {
     var value = wx.getStorageSync('userId');
     if (value) { // 如果有值 就是授权了
+      console.log('123');
     // ...
       return;
     } 

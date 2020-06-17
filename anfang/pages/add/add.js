@@ -13,43 +13,54 @@ Page({
     // }
     index: 0,
     array: [],
+    departmentIds: [],
+    files : [], 
+    imgUrl: '',
     info:{
       number: '',
       name: "",
       sex: '',
       phone: '',
       department: '',
+      departmentId: '',
       idNumber:"",
       address: "",
       daoqiTime: '',
       startTime: '',
-      endTime: '',
-      files: [{
-        url: ''
-        }]
+      endTime: ''
     },
   },
+  
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
     let info = this.data.info;
-    info.department = e.detail.value;
+    info.department = this.data.array[e.detail.value];
+    info.departmentId = this.data.departmentIds[e.detail.value];
     this.setData({
       info: info
     });
   },
-  options(){
+  // 部门列表
+  option(){
+    let url = getApp().globalData.postUrl + 'index//Department/department_list_all';
     wx.request({
-      url: getApp().globalData.postUrl + 'index//Department/department_list_all',
+      url: url,
       method: 'post',
-      success(obj){
+      header: {
+        // "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
+      },
+      success : (obj) => {
         console.log(obj);
-        let array = [];
+          let array = [];
+          let departmentIds = [];
           const list = obj.data.cetons;
           for (let i = 0; i < list.length; i++) {
             array.push(list[i].name);
+            departmentIds.push(list[i].id);
           }
         this.setData({
-          array: array
+          array: array,
+          departmentIds
         })
       }
     })
@@ -62,37 +73,111 @@ Page({
       info: this.data[dataset.obj]
     })
   },
-  // 验证规则
-  verify(){
-    if(!this.data.info.name){
-      wx.showToast({
-        title: '请填写姓名',
-        icon: 'none',
-        duration: 1500
-      })
-    }else if(!this.data.info.cardNumber){
-      wx.showToast({
-        title: '请填写正确的身份证号',
-        icon: 'none',
-        duration: 1500
-      })
-    }else if(!this.data.info.phone){
-      wx.showToast({
-        title: '请填写正确的手机号',
-        icon: 'none',
-        duration: 1500
-      })
-    }else if(!this.data.info.address){
-      wx.showToast({
-        title: '请填写地址',
-        icon: 'none',
-        duration: 1500
-      })
-    }
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let info = this.data.info;
+    info.daoqiTime =  e.detail.value;
+    this.setData({
+      info: info
+    })
   },
+  // 验证规则
+    verify(){
+        if(!this.data.info.number){
+          wx.showToast({
+            title: '请填写编号',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.name){
+          wx.showToast({
+            title: '请填写姓名',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.sex){
+          wx.showToast({
+            title: '请填写性别',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.phone){
+          wx.showToast({
+            title: '请填写手机号',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.department){
+          wx.showToast({
+            title: '请填写部门名称',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.idNumber){
+          wx.showToast({
+            title: '请填写正确的身份证号',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.address){
+          wx.showToast({
+            title: '请填写地址',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.daoqiTime){
+          wx.showToast({
+            title: '请填写到期时间',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.startTime){
+          wx.showToast({
+            title: '请填写开始时间',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(!this.data.info.endTime){
+          wx.showToast({
+            title: '请填写结束时间',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    if(this.data.files.length == 0){
+          wx.showToast({
+            title: '请上传图片',
+            icon: 'none',
+            duration: 1500
+          })
+    return false;
+        }
+    return true;
+      },
   // 提交
   submit(){
-    this.verify();
+    if(!this.verify()){
+      return;
+    }
     wx.request({
       url: getApp().globalData.postUrl + 'index//Pass/add_user',
       header: {
@@ -100,21 +185,33 @@ Page({
       },
       method: 'post',
       data: {
+        'user_id': '1',
         'user_number': this.data.info.number,
         'user_name': this.data.info.name,
         'sex':this.data.info.sex,
         'phone':this.data.info.phone,
         'card_number': this.data.info.idNumber,
         'card_address':this.data.info.address,
-        'department_id':this.data.info.array,
-        'end_time':this.data.info.number,
-        'pass_start_time':this.data.info.number,
-        'pass_end_time':this.data.info.number,
-        'img':this.data.info.number,
-
+        'department_id':this.data.info.departmentId,
+        'end_time':this.data.info.daoqiTime,
+        // 'pass_start_time':this.data.info.startTime,
+        // 'pass_end_time':this.data.info.endTime,
+        // 'img':this.data.files[0].url
+        'img' : this.data.imgUrl
       },
       success(obj){
         console.log(obj);
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(()=>{
+          wx.reLaunch({
+            url: '../index/index'
+          })
+        },2000)
+        
       }
     })
   },
@@ -127,20 +224,26 @@ Page({
       selectFile: this.selectFile.bind(this),
       uplaodFile: this.uplaodFile.bind(this)
   })
-  
+    this.option();
   },
-  chooseImage: function (e) {
-    var that = this;
-    wx.chooseImage({
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-        success: function (res) {
-            // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-            that.setData({
-                files: that.data.files.concat(res.tempFilePaths)
-            });
-        }
-    })
+chooseImage: function (e) {
+  var that = this;
+  wx.chooseImage({
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          let file = {
+            url: res.tempFilePaths[0],
+            loading: false
+          };
+          let files = [];
+          files.push(file);
+          that.setData({
+              files: files
+          });
+      }
+  })
 },
 previewImage: function(e){
     wx.previewImage({
@@ -152,14 +255,38 @@ selectFile(files) {
     console.log('files', files)
     // 返回false可以阻止某次文件上传
 },
+
 uplaodFile(files) {
-    console.log('upload files', files)
-    // 文件上传的函数，返回一个promise
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject('some error')
-        }, 1000)
-    })
+  let that = this;
+  let filePath = files.tempFilePaths[0];
+  console.log(files);
+  wx.uploadFile({
+      url: getApp().globalData.postUrl + 'index/Index/updloads_all',
+      filePath: filePath,
+      name: 'imagefile',
+      header: {
+      'content-type': 'multipart/form-data'
+      }, 
+      formData: {  }, // HTTP 请求中其他额外的 form data
+      success: function (res) {
+        let data = JSON.parse(res.data);
+        let file = {
+            url: filePath,
+            loading: false
+          };
+          let files = [];
+          files.push(file);
+          that.setData({
+              files: files,
+              imgUrl: data.cetons.img
+          });
+      },
+      fail: function (res) {
+      }
+  });
+  return new Promise((resolve, reject) => {
+      resolve({urls:that.data.files});
+  });
 },
 uploadError(e) {
     console.log('upload error', e.detail)

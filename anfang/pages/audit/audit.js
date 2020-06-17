@@ -5,23 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [
-    {
-      name: 'lemon',
-      number: 5,
-      phone: '1627536262526'
-    },
-    {
-      name: 'lemon',
-      number: 5,
-      phone: '1627536262526'
-    }
-
-  ]
+    list: []
   },
-  visitorDetailTap(){
+  visitorDetailTap(event){
+    const id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: 'visitorDetail/visitorDetail',
+      url: 'visitorDetail/visitorDetail?id='+id,
     })
   },
   /**
@@ -32,19 +21,35 @@ Page({
   },
   // 加载
   list(){
-    // wx.request({
-    //   url: getApp().globalData.postUrl + ' ',
-    //   header: {
-
-    //   },
-    //   method: 'post',
-    //   data: {
-
-    //   },
-    //   success(obj){
-    //     console.log(obj);
-    //   }
-    // })
+    let that = this;
+    wx.request({
+      url: getApp().globalData.postUrl + 'index//Recording/recording_shen',
+      header: {
+      },
+      method: 'post',
+      data: {
+        'user_id': '1'
+      },
+      success(res){
+      if(res.data.code == 1 ||res.data.code == '1'){
+        console.log(res);
+        const listData = [];
+        const list = res.data.cetons;
+        for(let i = 0; i < list.length; i++){
+          const data = {
+            id: list[i].id,
+            name: list[i].user_name,
+            number: list[i].accompanying,
+            phone: list[i].user_phone
+          }
+          listData.push(data);
+        }
+        that.setData({
+          list : listData
+          });
+      }
+      }
+    })
   },
 
   /**
