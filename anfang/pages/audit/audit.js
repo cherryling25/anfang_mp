@@ -32,21 +32,18 @@ Page({
       },
       success(res){
       if(res.data.code == 1 ||res.data.code == '1'){
-        console.log(res);
-        const listData = [];
-        const list = res.data.cetons;
-        for(let i = 0; i < list.length; i++){
-          const data = {
-            id: list[i].id,
-            name: list[i].user_name,
-            number: list[i].accompanying,
-            phone: list[i].user_phone
-          }
-          listData.push(data);
-        }
+        // for(let i = 0; i < list.length; i++){
+        //   const data = {
+        //     id: list[i].id,
+        //     name: list[i].user_name,
+        //     number: list[i].accompanying,
+        //     phone: list[i].user_phone
+        //   }
+        //   listData.push(data);
         that.setData({
-          list : listData
-          });
+          list: res.data.cetons
+        })
+        
       }
       }
     })

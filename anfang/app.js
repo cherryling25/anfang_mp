@@ -41,6 +41,6 @@ App({
     userCode: '',
     token: '',
     openid: '',
-    id: '1'
+    id: ''
   }
 })

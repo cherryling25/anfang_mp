@@ -36,7 +36,7 @@ Page({
   },
   // 加载
   list(){
-    this.mockedData();
+    //this.mockedData();
 
     let that = this;
     wx.request({
@@ -61,7 +61,8 @@ Page({
             carNumber: data.car_number,
             companyName: data.unit,
             cause: data.centons,
-            time: data.reservation_time
+            // time: data.reservation_time
+            time: data.date_time
           }
           that.setData({
             visitor: visitor
@@ -85,6 +86,9 @@ Page({
       success(res) {
         if (res.data.code == 1 || res.data.code == '1') {
           console.log('拒绝')
+          wx.switchTab({
+            url: '../index/index',
+          })
         }
       }
     })
@@ -104,6 +108,9 @@ Page({
       success(res) {
         if (res.data.code == 1 || res.data.code == '1') {
           console.log('通过')
+          wx.switchTab({
+            url: '../index/index',
+          })
         }
       }
     })

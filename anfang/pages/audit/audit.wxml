@@ -4,10 +4,10 @@
 		<view class="content" data-id='{{item.id}}' bindtap="visitorDetailTap">
 			<view class="textClass">访客：{{item.name}}</view>
 			<view class="textClass" style="display:flex; justify-content: space-between;">
-				<view style="padding:15rpx 0;">随行人数：{{item.number}}人</view>
+				<view style="padding:15rpx 0;">随行人数：{{item.accompanying}}人</view>
 				<image src="../../images/ic_xia.png"></image>
 			</view>
-			<view class="textClass">联系电话：{{item.phone}}</view>
+			<view class="textClass">联系电话：{{item.user_phone}}</view>
 		</view>
 	</view>
 </view>

@@ -52,3 +52,9 @@
   margin-bottom: 50rpx;
   border-radius: 10rpx;
 }
+.spanStyle{
+  float: right;
+}
+.radiogroup{
+  float: right;
+}

@@ -74,6 +74,7 @@ Page({
                     // 可以将 res 发送给后台解码出 unionId
                     getApp().globalData.userInfo = res.userInfo;
                     console.log(res.userInfo)
+
                     wx.showToast({
                       title: '授权登录成功',
                       icon: 'success',
@@ -84,7 +85,7 @@ Page({
                       url: getApp().globalData.postUrl + 'wechat/Login/index',
                       method: "post",
                       data: {
-                        'code': code,
+                        'code': code
                       },
                       success(obj) {
                         console.log(obj);

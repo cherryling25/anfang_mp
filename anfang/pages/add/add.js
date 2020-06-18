@@ -30,7 +30,14 @@ Page({
       endTime: ''
     },
   },
-  
+  radioChange: function (e) {
+    console.log(e.detail.value);
+    let info = this.data.info;
+    info.sex = e.detail.value;
+    this.setData({
+      info: info
+    });
+  },
   bindPickerChange: function(e) {
     let info = this.data.info;
     info.department = this.data.array[e.detail.value];
@@ -270,19 +277,24 @@ uplaodFile(files) {
       }, 
       formData: {  }, // HTTP 请求中其他额外的 form data
       success: function (res) {
-        let data = JSON.parse(res.data);
-        let file = {
-            url: filePath,
-            loading: false
-          };
-          let files = [];
-          files.push(file);
-          that.setData({
-              files: files,
-              imgUrl: data.cetons.img
-          });
+        console.log(res);
+        // if(res.data.code == 1 ||res.data.code == '1'){
+          let data = JSON.parse(res.data);
+          let file = {
+              url: filePath,
+              loading: false
+            };
+            let files = [];
+            files.push(file);
+            that.setData({
+                files: files,
+                imgUrl: data.cetons.img
+            });
+        // }
+        
       },
       fail: function (res) {
+        console.log(res);
       }
   });
   return new Promise((resolve, reject) => {

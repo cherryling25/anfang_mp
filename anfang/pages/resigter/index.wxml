@@ -2,11 +2,21 @@
     <view class="input_title">身份信息</view>
     <view class="input_info">
         <text>姓名</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="name" value="{{info.name}}" maxlength="5" placeholder="请输入姓名" placeholder-class="input_pla" />
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="name" value="{{info.name}}" placeholder="请输入姓名" placeholder-class="input_pla" />
       </view>
         <view class="input_info">
         <text>性别</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="5" placeholder="请输入性别" placeholder-class="input_pla" />
+        <radio-group bindchange="radioChange" class="radiogroup">
+        <label class="radio">
+          <radio value="男" checked="true"/>男
+        </label>
+        <label class="radio">
+          <radio value="女" />女
+        </label>
+        </radio-group>
+        <!-- <text>性别</text> -->
+         
+        <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="5" placeholder="请输入性别" placeholder-class="input_pla" /> -->
       </view>
         <view class="input_info">
         <text>联系电话</text>
@@ -18,7 +28,7 @@
       </view>
       <view class="input_info">
         <text>随行人数</text>
-        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="number" value="{{info.number}}" maxlength="3" placeholder="请输入随行人数" placeholder-class="input_pla" />
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="number" value="{{info.number}}" maxlength="5" placeholder="请输入随行人数" placeholder-class="input_pla" />
       </view>
         <view class="input_info">
         <text>车牌号</text>
@@ -39,10 +49,12 @@
         <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="cause" value="{{info.cause}}" maxlength="12" placeholder="请输入来访事由" placeholder-class="input_pla" />
       </view>
         <view class="input_info">
-        <text>来访时间</text>
-        <picker mode="date" value="{{info.time}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <!-- <text>来访时间</text> -->
+        <picker mode="date" value="{{info.time}}" start="2020-01-01" end="2029-09-01" bindchange="bindDateChange">
           <view class="picker">
-            请选择: {{info.time}}
+          <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="time" value="{{info.time}}" maxlength="20" placeholder="请输入来访时间" placeholder-class="input_pla" />
+            来访时间  
+            <!-- <span class='spanStyle'> {{info.time}}</span> -->
           </view>
         </picker>
         <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="time" value="{{info.time}}" maxlength="20" placeholder="请输入来访时间" placeholder-class="input_pla" /> -->
@@ -51,15 +63,15 @@
         <text>联系电话</text>
         <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="moblie" value="{{info.moblie}}" maxlength="11" placeholder="请输入联系电话" placeholder-class="input_pla" />
       </view>
-      <view class="input_info">
+      <!-- <view class="input_info">
         <text>负责区域</text>
         <picker bindchange="bindPickerChange" value="{{info.address}}" range="{{array}}">
           <view class="picker">
             请选择：{{info.address}}
           </view>
         </picker>
-        <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" /> -->
-      </view>
+        <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" />
+      </view> -->
  
   <view class="button" bindtap="submit">提交</view>
 </view>

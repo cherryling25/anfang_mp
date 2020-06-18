@@ -3,6 +3,7 @@
 	<view class="borderClass">
 		<view class="content">
 			<view class="title">身份信息</view>
+			<!-- <image src="../../../images/bgphoto.png" style="width:200rpx;height:200rpx;margin-top:20rpx;"></image> -->
 			<view><text>姓名</text> {{visitor.name}} </view>
 			<view> <text>性别</text>{{visitor.sex}}</view>
 			<view> <text>联系电话</text>{{visitor.phone}} </view>

@@ -10,7 +10,7 @@ Page({
     addressIds: [],
     info:{
       name: "",
-      sex:"",
+      sex: '',
       phone: "",
       idNumber: '',
       number: "",
@@ -24,6 +24,20 @@ Page({
       addressid: ''
     }
   },
+  radioChange: function (e) {
+    console.log(e.detail.value);
+    let info = this.data.info;
+    info.sex = e.detail.value;
+    this.setData({
+      info: info
+    });
+  },
+  // radioChange: function (e) {
+  //   console.log(e.detail.value);
+  //   this.setData({
+  //     sex : e.detail.value
+  //   });
+  // },
   // 区域选择
   bindPickerChange: function(e) {
     let info = this.data.info;
@@ -166,14 +180,14 @@ Page({
           })
     return false;
         }
-    if(!this.data.info.address){
-        wx.showToast({
-          title: '请填写地址',
-          icon: 'none',
-          duration: 1500
-        })
-      return false;
-      }
+  //   if(!this.data.info.address){
+  //       wx.showToast({
+  //         title: '请填写地址',
+  //         icon: 'none',
+  //         duration: 1500
+  //       })
+  //     return false;
+  //     }
       return true;
       },
   // 提交

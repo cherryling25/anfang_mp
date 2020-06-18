@@ -1,41 +1,52 @@
 <view>
   <view class="input_info">
-    <text>人员编号</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="number" value="{{info.number}}" maxlength="12" placeholder="请输入编号" placeholder-class="input_pla" />
+    <text>*人员编号</text>
+    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="number" value="{{info.number}}"  placeholder="请输入编号" placeholder-class="input_pla" /> -->
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="number" value="{{info.number}}"  placeholder="请输入编号" placeholder-class="input_pla" />
+    <!-- readonly -->
   </view>
     <view class="input_info">
-    <text>人员姓名</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="name" value="{{info.name}}" maxlength="5" placeholder="请输入姓名" placeholder-class="input_pla" />
+    <text>*人员姓名</text>
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="name" value="{{info.name}}"  placeholder="请输入姓名" placeholder-class="input_pla" />
   </view>
     <view class="input_info">
-    <text>性别</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="sex" value="{{info.sex}}" maxlength="3" placeholder="请输入性别" placeholder-class="input_pla" />
+    <text>*性别</text>
+     <radio-group bindchange="radioChange" class="radiogroup">
+      <label class="radio">
+        <radio value="男" checked="true"/>男
+      </label>
+      <label class="radio">
+        <radio value="女" />女
+      </label>
+      </radio-group>
   </view>
    <view class="input_info">
-    <text>手机号</text>
+    <text>*手机号</text>
     <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="phone" value="{{info.phone}}" maxlength="11" placeholder="请输入手机号" placeholder-class="input_pla" />
   </view>
    <view class="input_info">
-    <text>身份证号</text>
+    <text> 身份证号</text>
     <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="idNumber" value="{{info.idNumber}}" maxlength="18" placeholder="请输入身份证号" placeholder-class="input_pla" />
   </view>
     <view class="input_info">
-    <text>地址</text>
-    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}" maxlength="12" placeholder="请输入地址" placeholder-class="input_pla" />
+    <text> 地址</text>
+    <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="address" value="{{info.address}}"  placeholder="请输入地址" placeholder-class="input_pla" />
   </view>
    <view class="input_info">
-    <text>部门</text>
     <picker bindchange="bindPickerChange" value="{{info.department}}" range="{{array}}">
     <view class="picker">
-      请选择：{{info.department}}
+    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="department" value="{{info.department}}" placeholder="请选择部门" placeholder-class="input_pla" /> -->
+      *部门 
+      <span class='spanStyle'> {{info.department}}</span>
     </view>
   </picker>
   </view>
    <view class="input_info">
-    <text>到期时间</text>
-    <picker mode="date" value="{{info.daoqiTime}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{info.daoqiTime}}" start="2020-01-01" end="2029-09-01" bindchange="bindDateChange">
     <view class="picker">
-      请选择: {{info.daoqiTime}}
+    <!-- <input class="name" name="name" bindinput="inputInfo" data-obj="info" data-item="daoqiTime" value="{{info.daoqiTime}}" maxlength="20" placeholder="请选择到期时间" placeholder-class="input_pla" /> -->
+      *到期时间
+      <span class='spanStyle'> {{info.daoqiTime}}</span>
     </view>
   </picker>
     <!-- <picker mode="time" value="{{info.daoqiTime}}" start="09:01" end="21:01" bindchange="bindTimeChange">
